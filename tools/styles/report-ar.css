@@ -1,0 +1,93 @@
+:root{
+  --ink:#1A1A18; --muted:#6B6B63; --faint:#9C9A91;
+  --rule:#DDDBD4; --paper:#FFFFFF; --wash:#F7F6F2;
+  --accent:#B4562A;      /* terracotta — materials, clay, fired ceramic */
+  --accent-soft:#F3E7DF;
+  --rival:#2F6B4F;       /* the competitor's green — used only to mark it */
+  --ok:#2F6B4F; --warn:#B08900; --no:#A33A2A;
+}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IBM Plex Sans Arabic","IBM Plex Sans",sans-serif;
+  font-size:10.2pt; line-height:1.85; font-weight:400;
+}
+code,.mono{font-family:"IBM Plex Mono",monospace;direction:ltr;unicode-bidi:isolate;font-size:.88em}
+.lat{direction:ltr;unicode-bidi:isolate;font-family:"IBM Plex Sans",sans-serif}
+
+@page{size:A4;margin:17mm 16mm 20mm}
+.page-break{break-before:page}
+section{break-inside:auto}
+h1,h2,h3{line-height:1.35;margin:0}
+h2,h3{break-after:avoid}
+table,figure,.card,.kv{break-inside:avoid}
+
+/* ---------- cover ---------- */
+.cover{height:257mm;display:flex;flex-direction:column;justify-content:space-between;break-after:page}
+.cover .rule-top{height:6px;background:var(--accent);width:64mm}
+.cover .eyebrow{margin-top:14mm;font-size:8.6pt;letter-spacing:.14em;color:var(--muted);font-weight:600}
+.cover h1{font-size:30pt;font-weight:700;letter-spacing:-.01em;margin-top:6mm;max-width:150mm}
+.cover .sub{font-size:13.2pt;color:var(--muted);font-weight:400;margin-top:4mm;max-width:150mm;line-height:1.7}
+.cover .meta{border-top:1px solid var(--rule);padding-top:6mm;display:grid;grid-template-columns:repeat(2,1fr);gap:5mm 10mm}
+.cover .meta div span{display:block;font-size:8pt;color:var(--faint);letter-spacing:.06em;font-weight:600;margin-bottom:1mm}
+.cover .meta div b{font-weight:600;font-size:10.4pt}
+.stamp{display:inline-block;background:var(--accent-soft);color:var(--accent);border:1px solid #E4CDBE;
+  padding:2.5mm 5mm;border-radius:2mm;font-size:9pt;font-weight:600}
+
+/* ---------- headings ---------- */
+h2.sec{font-size:15.5pt;font-weight:700;margin:11mm 0 1mm;padding-bottom:2.5mm;border-bottom:2px solid var(--ink)}
+h2.sec .n{color:var(--accent);margin-inline-end:3mm}
+h2.sec:first-of-type{margin-top:0}
+h3{font-size:11.6pt;font-weight:600;margin:7mm 0 2mm;color:var(--ink)}
+h3.mini{font-size:9pt;letter-spacing:.1em;color:var(--muted);font-weight:600;margin:6mm 0 2mm}
+p{margin:0 0 3mm}
+.lead{font-size:11pt;color:var(--muted);margin-bottom:5mm}
+
+/* ---------- lists ---------- */
+ul,ol{margin:0 0 3mm;padding-inline-start:5.5mm}
+li{margin-bottom:1.8mm}
+ol.exec{counter-reset:e;list-style:none;padding:0;margin:0}
+ol.exec li{counter-increment:e;position:relative;padding-inline-start:10mm;margin-bottom:3.5mm}
+ol.exec li::before{content:counter(e);position:absolute;inset-inline-start:0;top:.9mm;
+  width:6.5mm;height:6.5mm;border-radius:50%;background:var(--ink);color:#fff;
+  font-size:8.4pt;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* ---------- tables ---------- */
+table{width:100%;border-collapse:collapse;margin:3mm 0 5mm;font-size:9.4pt}
+th,td{text-align:start;padding:2.6mm 3mm;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{background:var(--wash);font-weight:600;font-size:8.6pt;letter-spacing:.04em;
+  color:var(--muted);border-bottom:1.5px solid var(--ink)}
+tbody tr:last-child td{border-bottom:1px solid var(--ink)}
+td.k{font-weight:600;width:34%}
+table.tight td,table.tight th{padding:2mm 3mm}
+
+/* ---------- cards / callouts ---------- */
+.card{background:var(--wash);border:1px solid var(--rule);border-radius:2.5mm;padding:5mm 6mm;margin:4mm 0}
+.card.accent{background:var(--accent-soft);border-color:#E4CDBE}
+.card.plain{background:#fff}
+.card h4{margin:0 0 2mm;font-size:10.4pt;font-weight:700}
+.card p:last-child{margin-bottom:0}
+.flag{border-inline-start:3px solid var(--accent);background:var(--wash);padding:4mm 5mm;margin:4mm 0;border-radius:0 2mm 2mm 0}
+.flag.no{border-inline-start-color:var(--no)}
+.flag.ok{border-inline-start-color:var(--ok)}
+
+.kv{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin:4mm 0}
+.kv > div{border:1px solid var(--rule);border-radius:2.5mm;padding:4mm}
+.kv b{display:block;font-size:17pt;font-weight:700;line-height:1.2;letter-spacing:-.01em}
+.kv span{display:block;font-size:8.6pt;color:var(--muted);margin-top:1.5mm;line-height:1.5}
+
+/* ---------- misc ---------- */
+.tag{display:inline-block;font-size:8pt;font-weight:600;padding:.6mm 2.2mm;border-radius:1.5mm;
+  border:1px solid var(--rule);background:#fff;color:var(--muted);white-space:nowrap}
+.tag.a{color:var(--accent);border-color:#E4CDBE;background:var(--accent-soft)}
+.tag.ok{color:var(--ok);border-color:#CADCD1;background:#EEF5F0}
+.tag.no{color:var(--no);border-color:#E8CCC6;background:#FBEFEC}
+.tag.warn{color:var(--warn);border-color:#E8DCB0;background:#FBF6E4}
+.assume{color:var(--accent);font-weight:600;font-size:8.6pt;white-space:nowrap}
+.src{color:var(--faint);font-size:8.2pt}
+.swatch{display:inline-block;width:3.2mm;height:3.2mm;border-radius:.8mm;vertical-align:-.4mm;
+  margin-inline-end:1.5mm;border:1px solid rgba(0,0,0,.12)}
+hr.soft{border:0;border-top:1px solid var(--rule);margin:7mm 0}
+.foot{margin-top:10mm;padding-top:4mm;border-top:1px solid var(--rule);font-size:8.6pt;color:var(--faint)}
+.foot a{color:var(--faint)}
