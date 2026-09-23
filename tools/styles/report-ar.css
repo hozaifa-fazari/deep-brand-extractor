@@ -138,3 +138,41 @@ figcaption{font-size:8.6pt;color:var(--muted);margin-top:2.5mm;line-height:1.6}
 .vs .side span{display:block;font-size:8.4pt;color:var(--muted);margin-top:2mm;line-height:1.5}
 .vs .side em{display:block;font-style:normal;font-size:9pt;font-weight:600;margin-bottom:2.5mm}
 .vs .mid{font-size:9pt;font-weight:700;color:var(--faint)}
+
+/* ---------- proposal components ---------- */
+.hero-line{background:var(--ink);color:#fff;border-radius:3mm;padding:7mm 8mm;margin:5mm 0}
+.hero-line .l{font-size:8.4pt;letter-spacing:.12em;opacity:.65;font-weight:600;margin-bottom:3mm}
+.hero-line p{font-size:15pt;line-height:1.55;font-weight:600;margin:0}
+.hero-line p b{color:#E8A87C}
+
+.pkg{border:1px solid var(--rule);border-radius:2.5mm;padding:5mm 6mm;margin:4mm 0;break-inside:avoid}
+.pkg-h{display:flex;align-items:baseline;gap:3mm;border-bottom:1px solid var(--rule);
+  padding-bottom:3mm;margin-bottom:4mm}
+.pkg-h .n{width:7mm;height:7mm;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:9pt;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+.pkg-h h3{margin:0;font-size:12.5pt}
+.pkg-h .tagline{font-size:8.8pt;color:var(--muted);margin-inline-start:auto;font-weight:500}
+
+.month{border-inline-start:3px solid var(--accent);padding:0 5mm 1mm;margin:0 0 6mm;break-inside:avoid}
+.month h4{margin:0 0 1mm;font-size:11.4pt;font-weight:700}
+.month .goal{font-size:9pt;color:var(--accent);font-weight:600;margin-bottom:3mm}
+.month table{margin-top:2mm}
+
+ul.check{list-style:none;padding:0;margin:0 0 3mm}
+ul.check li{position:relative;padding-inline-start:6mm;margin-bottom:1.8mm}
+ul.check li::before{content:"";position:absolute;inset-inline-start:0;top:1.8mm;
+  width:2.6mm;height:2.6mm;border-radius:.6mm;background:var(--accent)}
+
+table.price td.fill{background:var(--wash);color:var(--faint);font-style:italic;text-align:center}
+.tier{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin:4mm 0}
+.tier > div{border:1px solid var(--rule);border-radius:2.5mm;padding:4mm;text-align:center}
+.tier > div.reco{border-color:var(--accent);border-width:1.5px;background:var(--accent-soft)}
+.tier b{display:block;font-size:11pt;font-weight:700;margin-bottom:1.5mm}
+.tier .amt{font-size:15pt;font-weight:700;color:var(--accent);letter-spacing:-.01em}
+.tier span{display:block;font-size:8.2pt;color:var(--muted);margin-top:2mm;line-height:1.5}
+
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5mm;margin:4mm 0}
+.kpi-row > div{border:1px solid var(--rule);border-radius:2mm;padding:3.5mm;text-align:center}
+.kpi-row b{display:block;font-size:13.5pt;font-weight:700;color:var(--accent);line-height:1.2}
+.kpi-row em{display:block;font-style:normal;font-size:7.6pt;color:var(--faint);margin-bottom:1.5mm}
+.kpi-row span{display:block;font-size:7.8pt;color:var(--muted);margin-top:1.5mm;line-height:1.45}
