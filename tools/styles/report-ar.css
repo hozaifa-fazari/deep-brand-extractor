@@ -22,6 +22,10 @@ section{break-inside:auto}
 h1,h2,h3{line-height:1.35;margin:0}
 h2,h3{break-after:avoid}
 table,figure,.card,.kv{break-inside:avoid}
+thead{display:table-header-group}
+/* opt-in: a long spec table may span pages; rows stay whole */
+table.splittable{break-inside:auto}
+table.splittable tr{break-inside:avoid}
 
 /* ---------- cover ---------- */
 .cover{height:257mm;display:flex;flex-direction:column;justify-content:space-between;break-after:page}
