@@ -106,7 +106,7 @@ def chromium_path() -> str | None:
     return None
 
 
-def to_pdf(html_path: Path, pdf_path: Path, footer_label: str) -> None:
+def to_pdf(html_path: Path, pdf_path: Path, footer_label: str, outline: bool = False) -> None:
     from playwright.sync_api import sync_playwright
 
     with sync_playwright() as p:
@@ -122,6 +122,9 @@ def to_pdf(html_path: Path, pdf_path: Path, footer_label: str) -> None:
             header_template="<div></div>",
             footer_template=FOOTER.replace("__LABEL__", footer_label),
             margin={"top": "17mm", "bottom": "20mm", "left": "16mm", "right": "16mm"},
+            # headings become PDF bookmarks; needs a tagged PDF
+            outline=outline,
+            tagged=outline,
         )
         browser.close()
 
@@ -135,6 +138,8 @@ def main() -> int:
     ap.add_argument("--footer", default="", help="text shown at the foot of every page")
     ap.add_argument("--lang", default="ar")
     ap.add_argument("--dir", dest="direction", default="rtl", choices=["rtl", "ltr"])
+    ap.add_argument("--outline", action="store_true",
+                    help="add a bookmark tree built from the document headings")
     args = ap.parse_args()
 
     html = build_html(
@@ -148,7 +153,7 @@ def main() -> int:
     html_path.parent.mkdir(parents=True, exist_ok=True)
     html_path.write_text(html, encoding="utf-8")
 
-    to_pdf(html_path, args.out, args.footer or args.title)
+    to_pdf(html_path, args.out, args.footer or args.title, args.outline)
     print(json.dumps({
         "html": str(html_path), "html_bytes": html_path.stat().st_size,
         "pdf": str(args.out), "pdf_bytes": args.out.stat().st_size,
